@@ -1,0 +1,9 @@
+.filter_form__label{
+    margin-bottom: 15px;
+}
+
+.filter_form__input{
+  margin-left: 15px;
+  border: none;
+  border-bottom: 1px solid #414141;
+}

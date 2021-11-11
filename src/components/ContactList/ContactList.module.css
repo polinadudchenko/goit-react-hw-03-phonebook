@@ -1,0 +1,23 @@
+.contact_list{
+    padding: 20px;
+    background-color: #fff;
+    width: 500px;
+}
+
+.contact_list__head{
+    padding: 5px;
+    color: #fff;
+    background-color: #414141;
+}
+
+.contact_list__body{
+    text-align: center;
+}
+
+.contact_list__body_line:nth-child(even){
+    background-color: rgb(148, 148, 155);
+}
+
+.contact_list__body_line:nth-child(odd){
+    background-color: rgb(188, 188, 190);
+}

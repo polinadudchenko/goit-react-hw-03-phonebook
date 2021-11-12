@@ -24,7 +24,6 @@ class ContactForm extends Component{
     }
     
     reset = () => {
-        console.log('aaa');
         this.setState({...INITIAL_STATE})
     }
     render() {

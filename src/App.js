@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { v1 as uuidv1 } from 'uuid';
 import s from './App.module.css';
+import { getDataFromLocalStorage } from './utils/helpers-local-storage'
+import { writeDataToLocalStorage } from './utils/helpers-local-storage'
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter'
@@ -14,18 +16,18 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const data = localStorage.getItem('contacts');
-    const parseContacts = JSON.parse(data);
-    if (data) {
-      this.setState({ contacts: parseContacts });
+    const parsedContacts = getDataFromLocalStorage('contacts');
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
     }
   }
 
-  componentDidUpdate(prevState) {
-    const {contacts} = this.state
-    if (contacts !== prevState) {
-      localStorage.setItem('contacts', JSON.stringify(contacts));
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (contacts !== prevState.contacts) {
+      writeDataToLocalStorage('contacts', this.state.contacts);
     }
+    
   }
 
   onHandlerSubmit = data => {
